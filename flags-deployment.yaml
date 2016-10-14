@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: flags
-        image: eu.gcr.io/newImagePath/newThree
+        image: eu.gcr.io/newImagePath/new0.6884197003673762
         ports:
         - containerPort: 3000
         command: ["node", "src/server.js"]
