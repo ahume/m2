@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: flags
+spec:
+  replicas: 3
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: flags
+    spec:
+      containers:
+      - name: flags
+        image: eu.gcr.io/newImagePath/newThree
+        ports:
+        - containerPort: 3000
+        command: ["node", "src/server.js"]
+        env:
+        - name: NODE_ENV
+          value: production
+        readinessProbe:
+          httpGet:
+            path: /flags/analytics/stage/health
+            port: 3000
