@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: flags
-        image: /go/on/five
+        image: the.com/image
         ports:
         - containerPort: 3000
         command: ["node", "src/server.js"]
